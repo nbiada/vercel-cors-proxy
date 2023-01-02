@@ -16,12 +16,7 @@ const showConfiguration = (process.env.PROXY_SHOWCONFIGURATION || false) == "tru
 proxy.set("view engine", "pug");
 proxy.set("views", path.join(__dirname, "views"));
 
-proxy.use(express.static('public'));
-
-const nm_dependencies = ['bootstrap'];
-nm_dependencies.forEach(dep => {
-  proxy.use(`/${dep}`, express.static(path.resolve(`node_modules/${dep}`)));
-});
+proxy.use(express.static(path.join(__dirname, 'public')));
 
 proxy.use(cors({ credentials: credentials, origin: origin }));
 proxy.options('*', cors({ credentials: credentials, origin: origin }));
