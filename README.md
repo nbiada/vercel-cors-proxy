@@ -1,6 +1,8 @@
-# Local CORS Proxy
+# VERCEL CORS PROXY
 
-Simple proxy to bypass CORS issues. This was built as a local dev only solution to enable prototyping against existing APIs without having to worry about CORS.
+Proxy to bypass CORS issues working in VERCEL environment.  
+This project is a fork from [Local Cors Proxy](https://github.com/garmeeh/local-cors-proxy) created by Gary Meehan.  
+was built as a local dev only solution to enable prototyping against existing APIs without having to worry about CORS.
 
 This module was built to solve the issue of getting this error:
 

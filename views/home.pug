@@ -1,0 +1,19 @@
+extends layout.pug
+
+block variables
+    - var link = '/configuration'
+    - var linkText = 'Configuration'
+
+block content
+    main.px-3.text-center
+
+        h1 The 
+            u CORS
+            |  proxy for VERCEL applications.
+                
+        p.lead.mt-3 The best CORS proxy for your VERCEL applications.
+        p.lead.mt-4.fw-bold Your CORS proxy is up &amp; 
+            img.ms-2(src="running.png" style="height: 2rem")            
+        
+        p.lead.mt-5
+            a(href="https://github.com/nbiada/vercel-cors-proxy#readme" class="btn btn-lg btn-secondary fw-bold border-white bg-white") Learn more

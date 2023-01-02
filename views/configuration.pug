@@ -1,0 +1,24 @@
+extends layout.pug
+
+block variables
+    - var link = '/'
+    - var linkText = 'Home'
+
+block content
+    main.px-3
+
+        h1.mb-5 Configuration 
+        table.table.table-dark
+            tbody 
+                tr 
+                    th Destination URL 
+                    td= proxyDestination
+                tr 
+                    th Port 
+                    td= port
+                tr 
+                    th Credentials 
+                    td= credentials
+                tr 
+                    th Origin 
+                    td= origin                    

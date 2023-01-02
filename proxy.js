@@ -6,10 +6,15 @@ require('dotenv').config();
 var proxy = express();
 
 let proxyDestination = process.env.PROXY_DESTINATION;
-const credentials = process.env.PROXY_CREDENTIALS || false;
+const credentials = (process.env.PROXY_CREDENTIALS || false) == "true";
 const origin = process.env.PROXY_ORIGIN || '*';
 const port = process.env.PORT || 8222;
 const proxyPartial = process.env.PROXY_PATH || 'proxy';
+const showHome = (process.env.PROXY_SHOWHOME || false) == "true";
+const showConfiguration = (process.env.PROXY_SHOWCONFIGURATION || false) == "true";
+
+proxy.set("view engine", "pug");
+proxy.set("views", path.join(__dirname, "views"));
 
 proxy.use(express.static('public'));
 
@@ -44,7 +49,18 @@ proxy.use('/' + cleanProxyPartial, function (req, res) {
 });
 
 proxy.get('/', (req, res) => {
-  res.sendFile('index.html', { root: path.join(__dirname, 'public') });
+  if (showHome && showHome == true) {
+    res.render("home", { proxyDestination: proxyDestination, port: port, credentials: credentials, origin: origin });
+  } else {
+    res.sendStatus(404);
+  }
+});
+proxy.get('/configuration', (req, res) => {
+  if (showConfiguration && showConfiguration == true) {
+    res.render("configuration", { proxyDestination: proxyDestination, port: port, credentials: credentials, origin: origin });
+  } else {
+    res.sendStatus(404);
+  }
 });
 
 
@@ -55,5 +71,6 @@ console.log('Proxy Url: ' + cleanproxyDestination);
 console.log('Port: ' + port);
 console.log('Credentials: ' + credentials);
 console.log('Origin: ' + origin);
+console.log('Show pages: Home=' + showHome + ", Configuration=" + showConfiguration);
 
 module.exports = proxy
