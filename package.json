@@ -1,0 +1,32 @@
+{
+  "name": "vercel-cors-proxy",
+  "version": "0.2.1",
+  "main": "proxy.js",
+  "scripts": {
+    "start": "node proxy.js"
+  },
+  "author": "Nicola Biada",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nbiada/vercel-cors-proxy.git"
+  },
+  "keywords": [
+    "cors",
+    "proxy",
+    "vercel",
+    "node",
+    "express"
+  ],
+  "bugs": {
+    "url": "https://github.com/nbiada/vercel-cors-proxy/issues"
+  },
+  "homepage": "https://github.com/nbiada/vercel-cors-proxy#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "cors": "^2.8.4",
+    "dotenv": "^16.0.3",
+    "express": "^4.16.3",
+    "request": "^2.85.0"
+  }
+}
